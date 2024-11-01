@@ -60,6 +60,13 @@ material_overlay = SubResource("StandardMaterial3D_txj36")
 use_collision = true
 size = Vector3(4, 1, 4)
 
+[node name="Box 4" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23314, -3)
+material_override = SubResource("StandardMaterial3D_4lnu2")
+material_overlay = SubResource("StandardMaterial3D_txj36")
+use_collision = true
+size = Vector3(4, 1, 4)
+
 [node name="Wall 1" type="CSGBox3D" parent="Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 4, 0)
 use_collision = true
@@ -88,4 +95,4 @@ shadow_enabled = true
 environment = SubResource("Environment_u5exw")
 
 [node name="Player" parent="." instance=ExtResource("1_5e36h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351983, 1.39151, 1.29793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351983, 1.0005, 1.29793)
