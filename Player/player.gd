@@ -5,6 +5,7 @@ class_name Player
 
 @onready var head: Node3D = $head
 @onready var collision_shape: CapsuleShape3D = $PlayerCapsule.get_shape()
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
