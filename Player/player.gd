@@ -21,9 +21,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Check if the player starts or stops moving
-	if is_moving() != was_moving:
+	if cmc.is_moving() != was_moving:
 		update_fov()
-	was_moving = is_moving()
+	was_moving = cmc.is_moving()
 	
 	# Smoothly update FOV if BFov_lerp is active
 	if bFov_lerp:
@@ -45,13 +45,9 @@ func _input(event: InputEvent) -> void:
 
 func update_fov() -> void:
 	# Set target FOV based on the movement state
-	if cmc.is_sprinting and is_moving() and !cmc.is_crouching:
+	if cmc.is_sprinting and cmc.is_moving() and !cmc.is_crouching:
 		target_fov = base_fov + (cmc.sprint_speed * 2)
 	else:
 		target_fov = base_fov
 	
 	bFov_lerp = true # Enable lerping for the smooth transition
-
-# Helper function to check if the player is moving 
-func is_moving() -> bool:
-	return (abs(velocity.x) != 0) or (abs(velocity.z) != 0)

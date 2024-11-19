@@ -103,3 +103,4 @@ environment = SubResource("Environment_u5exw")
 
 [node name="Player" parent="." instance=ExtResource("1_5e36h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351983, 1.0005, 1.29793)
+sensitivity = 0.3

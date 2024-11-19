@@ -4,12 +4,14 @@ class_name CustomMovementComponent
 @export var actor: Player
 
 const JUMP_VELOCITY = 4.5
+const FRICTION: float = 55
 
 # Different speeds for different movement states
 var walking_speed: float = 5.0
 var sprint_speed: float = walking_speed * 1.75
 var crouching_speed: float = walking_speed * 0.65
 var current_speed = walking_speed
+var midair_speed = 5
 
 # Sprinting variables
 var is_sprinting: bool = false
@@ -60,13 +62,19 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (actor.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		actor.velocity.x = direction.x * current_speed
-		actor.velocity.z = direction.z * current_speed
+	if actor.is_on_floor():
+		if direction:
+			actor.velocity.x = direction.x * current_speed
+			actor.velocity.z = direction.z * current_speed
+		else:
+			actor.velocity.x = move_toward(actor.velocity.x, 0, FRICTION * delta)
+			actor.velocity.z = move_toward(actor.velocity.z, 0, FRICTION * delta)
 	else:
-		actor.velocity.x = move_toward(actor.velocity.x, 0, current_speed)
-		actor.velocity.z = move_toward(actor.velocity.z, 0, current_speed)
-		
+		# Movement for when the player is mid air. Prevents the player from suddenly moving in a different direction
+		# So the player carries on moving towards the direction they were moving towards
+		# midair_speed variable is how much control the player has in the air
+		actor.velocity.x = move_toward(actor.velocity.x, direction.x * current_speed, delta * midair_speed)
+		actor.velocity.z = move_toward(actor.velocity.z, direction.z * current_speed, delta * midair_speed)
 	actor.move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -162,3 +170,7 @@ func handle_jump() -> void:
 		# If they are crouching in the air
 		if is_crouching:
 			end_crouch()
+			
+# Helper function to check if the player is moving 
+func is_moving() -> bool:
+	return (abs(actor.velocity.x) != 0) or (abs(actor.velocity.z) != 0)
