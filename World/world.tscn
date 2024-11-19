@@ -67,6 +67,13 @@ material_overlay = SubResource("StandardMaterial3D_txj36")
 use_collision = true
 size = Vector3(4, 1, 4)
 
+[node name="Box 5" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03314, -8)
+material_override = SubResource("StandardMaterial3D_4lnu2")
+material_overlay = SubResource("StandardMaterial3D_txj36")
+use_collision = true
+size = Vector3(4, 1, 4)
+
 [node name="Wall 1" type="CSGBox3D" parent="Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 4, 0)
 use_collision = true

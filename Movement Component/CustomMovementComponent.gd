@@ -18,6 +18,7 @@ var is_sprinting: bool = false
 @export_range(5, 10, 0.1) var CROUCH_SPEED: float = 8.5
 var is_crouching: bool = false
 var can_crouch: bool = true
+@export var uncrouch_space: ShapeCast3D
 
 # Check if actor is falling
 var is_falling: bool = false
@@ -43,14 +44,17 @@ func _physics_process(delta: float) -> void:
 		match move_state:
 			MovementState.WALKING: 
 				current_speed = walking_speed
+				
 			MovementState.SPRINTING:
 				current_speed = sprint_speed
+				
 			MovementState.CROUCHING:
 				current_speed = crouching_speed
 		
 	# Handle jump. Check if the actor is crouching and prevent them from jumping
-	if Input.is_action_just_pressed("ui_accept") and actor.is_on_floor() and !is_crouching:
-		actor.velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		handle_jump()
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -62,16 +66,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		actor.velocity.x = move_toward(actor.velocity.x, 0, current_speed)
 		actor.velocity.z = move_toward(actor.velocity.z, 0, current_speed)
-	
+		
+	# FOV changes
+	var target_fov = actor.base_fov + (sprint_speed * 1.5) if is_sprinting else actor.base_fov
+	actor.player_camera.fov = lerp(actor.player_camera.fov, target_fov, delta * 5) 
 	actor.move_and_slide()
-	print(current_speed)
 
 func _input(event: InputEvent) -> void:
 	# Input events to handle crouching
-	if event.is_action_pressed("crouch") and !is_crouching:
-		handle_crouch(true)
-	if event.is_action_released("crouch") and is_crouching:
-		handle_crouch(false)
+	#if event.is_action_pressed("crouch") and !is_crouching:
+		#handle_crouch(true)
+	#if event.is_action_released("crouch") and is_crouching:
+		#handle_crouch(false)
+	if event.is_action_pressed("crouch"):
+		toggle_crouch()
 	
 	# Input events to handle sprinting
 	if event.is_action_pressed("sprint") and !is_crouching and actor.is_on_floor():
@@ -82,19 +90,9 @@ func _input(event: InputEvent) -> void:
 func handle_crouch(state: bool) -> void:
 	match state:
 		true:
-			# Play crouch animation and change movement state to crouching 
-			actor.animation_player.play("crouch", -1, CROUCH_SPEED)
-			move_state = MovementState.CROUCHING
+			start_crouch()
 		false:
-			# Stop crouching and play animation and switch back to walking 
-			actor.animation_player.play("crouch", -1, -CROUCH_SPEED, true)
-			if is_sprinting:
-				move_state = MovementState.SPRINTING
-			else:
-				move_state = MovementState.WALKING
-	
-	# Swap the is_crouching boolean 
-	is_crouching = !is_crouching
+			end_crouch()
 
 func handle_sprint(state: bool) -> void:
 	match state:
@@ -110,3 +108,56 @@ func handle_sprint(state: bool) -> void:
 				return
 			# If not crouching then move to walking state
 			move_state = MovementState.WALKING
+
+func toggle_crouch() -> void:
+	if !is_crouching:
+		start_crouch()
+		
+	else:
+		end_crouch()
+
+func start_crouch() -> void:
+	# Play crouch animation and change movement state to crouching 
+	actor.animation_player.play("crouch", -1, CROUCH_SPEED)
+	move_state = MovementState.CROUCHING
+
+	# Enable the uncrouch space only when the player is crouching
+	uncrouch_space.set_enabled(true)
+
+	print("crouching")
+	# Swap the is_crouching boolean 
+	is_crouching = !is_crouching
+	
+func end_crouch() -> void:
+	# Check if there is collision above the player so return out of the function
+	# to prevent the player from standing up
+	if uncrouch_space.is_colliding(): 
+		print("wants to uncrouch")
+		return
+	
+	# Stop crouching and play animation and switch back to walking 
+	actor.animation_player.play("crouch", -1, -CROUCH_SPEED, true)
+	# Stop the uncrouch space from checking for collision
+	uncrouch_space.set_enabled(false)
+	if is_sprinting:
+		move_state = MovementState.SPRINTING
+	else:
+		move_state = MovementState.WALKING
+	print("not crouching")
+	
+	# Swap the is_crouching boolean 
+	is_crouching = !is_crouching
+
+func handle_jump() -> void:
+	if actor.is_on_floor():
+		# If the player is on the floor and not crouching then jump
+		if !is_crouching:
+			actor.velocity.y = JUMP_VELOCITY
+		# End crouching if jump key is pressed and player is crouching
+		else:
+			end_crouch()
+	else:
+		# Allows the player to uncrouch mid air by pressing the jump key again 
+		# If they are crouching in the air
+		if is_crouching:
+			end_crouch()

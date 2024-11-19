@@ -4,11 +4,15 @@ class_name Player
 @export var sensitivity: float = 0.3
 
 @onready var head: Node3D = $head
+@onready var player_camera: Camera3D = $head/Camera3D
 @onready var collision_shape: CapsuleShape3D = $PlayerCapsule.get_shape()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+# Changing FOV variables
+var base_fov: float = 90
 
 func _ready() -> void:
+	player_camera.set_fov(base_fov)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
