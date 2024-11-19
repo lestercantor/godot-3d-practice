@@ -54,8 +54,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump. Check if the actor is crouching and prevent them from jumping
 	if Input.is_action_just_pressed("jump"):
 		handle_jump()
-		
-
+			
+			
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
@@ -67,9 +67,6 @@ func _physics_process(delta: float) -> void:
 		actor.velocity.x = move_toward(actor.velocity.x, 0, current_speed)
 		actor.velocity.z = move_toward(actor.velocity.z, 0, current_speed)
 		
-	# FOV changes
-	var target_fov = actor.base_fov + (sprint_speed * 1.5) if is_sprinting else actor.base_fov
-	actor.player_camera.fov = lerp(actor.player_camera.fov, target_fov, delta * 5) 
 	actor.move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -100,6 +97,7 @@ func handle_sprint(state: bool) -> void:
 			is_sprinting = true
 			# Change to sprinting state
 			move_state = MovementState.SPRINTING
+			actor.update_fov()
 		false:
 			is_sprinting = false
 			# When the player lets go of the sprint key and they are crouching
@@ -108,6 +106,7 @@ func handle_sprint(state: bool) -> void:
 				return
 			# If not crouching then move to walking state
 			move_state = MovementState.WALKING
+			actor.update_fov()
 
 func toggle_crouch() -> void:
 	if !is_crouching:
@@ -127,6 +126,7 @@ func start_crouch() -> void:
 	print("crouching")
 	# Swap the is_crouching boolean 
 	is_crouching = !is_crouching
+	actor.update_fov()
 	
 func end_crouch() -> void:
 	# Check if there is collision above the player so return out of the function
@@ -147,6 +147,7 @@ func end_crouch() -> void:
 	
 	# Swap the is_crouching boolean 
 	is_crouching = !is_crouching
+	actor.update_fov()
 
 func handle_jump() -> void:
 	if actor.is_on_floor():
