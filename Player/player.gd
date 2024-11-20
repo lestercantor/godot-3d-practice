@@ -15,6 +15,8 @@ var target_fov: float = 0.0
 var bFov_lerp: bool = false
 var was_moving: bool = false
 
+var actor_to_interact_with: Interactable = null
+
 func _ready() -> void:
 	player_camera.set_fov(base_fov)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -42,6 +44,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
+	if event.is_action_pressed("Interact") and actor_to_interact_with:
+		actor_to_interact_with.on_interact(self)
 
 func update_fov() -> void:
 	# Set target FOV based on the movement state
@@ -51,3 +55,9 @@ func update_fov() -> void:
 		target_fov = base_fov
 	
 	bFov_lerp = true # Enable lerping for the smooth transition
+
+func _on_interaction_ray_start_colliding(object: Interactable) -> void:
+	actor_to_interact_with = object
+
+func _on_interaction_ray_end_colliding() -> void:
+	actor_to_interact_with = null

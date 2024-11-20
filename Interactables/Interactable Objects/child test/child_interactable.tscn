@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtymve8sb31my"]
+
+[ext_resource type="Script" path="res://Interactables/Interactable Objects/child test/child_interact_test.gd" id="1_b1cjo"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_1lj8o"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_07kqr"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 5
+collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_b1cjo")
+message = "triangle"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_1lj8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_07kqr")

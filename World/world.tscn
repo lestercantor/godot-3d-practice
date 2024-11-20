@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7mj3iypqyxxy"]
+[gd_scene load_steps=13 format=3 uid="uid://b7mj3iypqyxxy"]
 
 [ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Player/player.tscn" id="1_5e36h"]
+[ext_resource type="PackedScene" uid="uid://chren7x8xtu2h" path="res://Interactables/Interactable Objects/test_interactable.tscn" id="1_5jvjg"]
+[ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
@@ -94,6 +96,18 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 
 use_collision = true
 size = Vector3(1, 11, 127)
 
+[node name="TestInteractable" parent="." instance=ExtResource("1_5jvjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1391, 2.23314, -3)
+
+[node name="TestInteractable2" parent="." instance=ExtResource("1_5jvjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13911, 2.23314, -3)
+
+[node name="TestInteractable3" parent="." instance=ExtResource("1_5jvjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13911, 2.23314, -3)
+
+[node name="TestInteractable4" parent="." instance=ExtResource("1_5jvjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33911, 2.03314, 0)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.965926, -0.224144, 0.12941, 0.224144, -0.474445, 0.851271, -0.12941, 0.851271, 0.508519, 0, 22, 0)
 shadow_enabled = true
@@ -102,5 +116,7 @@ shadow_enabled = true
 environment = SubResource("Environment_u5exw")
 
 [node name="Player" parent="." instance=ExtResource("1_5e36h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351983, 1.0005, 1.29793)
-sensitivity = 0.3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35198, 1.0005, 1.29793)
+
+[node name="RigidBody3D" parent="." instance=ExtResource("3_2gmjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 0)

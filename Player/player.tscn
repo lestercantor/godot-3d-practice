@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbqqs4brsd23k"]
+[gd_scene load_steps=10 format=3 uid="uid://bbqqs4brsd23k"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_cbrqq"]
+[ext_resource type="PackedScene" uid="uid://rcyqt17sqkp2" path="res://Interactables/PlayerInteractRay/interaction_ray.tscn" id="2_8cbfn"]
 [ext_resource type="Script" path="res://Movement Component/CustomMovementComponent.gd" id="2_y4nyf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qw15f"]
@@ -110,6 +111,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="Camera3D" type="Camera3D" parent="head"]
 fov = 90.0
 
+[node name="InteractionRay" parent="head" instance=ExtResource("2_8cbfn")]
+interact_range = -2.5
+
 [node name="CustomMovementComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "uncrouch_space")]
 script = ExtResource("2_y4nyf")
 actor = NodePath("..")
@@ -124,3 +128,6 @@ target_position = Vector3(0, 0.5, 0)
 libraries = {
 "": SubResource("AnimationLibrary_h22yx")
 }
+
+[connection signal="end_colliding" from="head/InteractionRay" to="." method="_on_interaction_ray_end_colliding"]
+[connection signal="start_colliding" from="head/InteractionRay" to="." method="_on_interaction_ray_start_colliding"]
