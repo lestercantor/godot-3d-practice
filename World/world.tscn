@@ -109,7 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13911, 2.23314, -3)
 interact_name = "Sphere 2"
 
 [node name="TestInteractable4" parent="." instance=ExtResource("1_5jvjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33911, 2.03314, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33911, 2.03314, -0.678904)
 interact_name = "Sphere 1"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

@@ -20,13 +20,13 @@ func _physics_process(delta: float) -> void:
 		# Check if the object the raycast is colliding with has the "Interactable" class
 		var collider = get_collider()
 		if collider is Interactable:
-			print(collider.interact_name + " is interactable")
+			#print(collider.interact_name + " is interactable " + collider.get_prompt())
 			# Set already_colliding to true so that it doesn't get called every frame
 			already_colliding = true
 			# Emit the signal that the raycast has collided with something and pass the interactable object
 			start_colliding.emit(collider)
 			prompt.set_visible(true)
-			prompt.text = collider.interact_name
+			prompt.text = collider.get_prompt()
 	
 	# Check when the player has looked away from the interactable object 
 	# Emit the signal that the raycast has stopped and set already_colliding to false so it's not called every frame
