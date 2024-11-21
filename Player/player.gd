@@ -45,7 +45,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
 	if event.is_action_pressed("Interact") and actor_to_interact_with:
-		actor_to_interact_with.on_interact(self)
+		actor_to_interact_with.call_deferred("on_interact",self)
 
 func update_fov() -> void:
 	# Set target FOV based on the movement state

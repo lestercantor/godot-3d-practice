@@ -98,15 +98,19 @@ size = Vector3(1, 11, 127)
 
 [node name="TestInteractable" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1391, 2.23314, -3)
+interact_name = "Sphere 4"
 
 [node name="TestInteractable2" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13911, 2.23314, -3)
+interact_name = "Sphere 3"
 
 [node name="TestInteractable3" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13911, 2.23314, -3)
+interact_name = "Sphere 2"
 
 [node name="TestInteractable4" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33911, 2.03314, 0)
+interact_name = "Sphere 1"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.965926, -0.224144, 0.12941, 0.224144, -0.474445, 0.851271, -0.12941, 0.851271, 0.508519, 0, 22, 0)
@@ -120,3 +124,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35198, 1.0005, 1.29793)
 
 [node name="RigidBody3D" parent="." instance=ExtResource("3_2gmjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 0)
+interact_name = "You diggin in me"

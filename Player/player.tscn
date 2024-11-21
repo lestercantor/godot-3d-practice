@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbqqs4brsd23k"]
+[gd_scene load_steps=11 format=3 uid="uid://bbqqs4brsd23k"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_cbrqq"]
 [ext_resource type="PackedScene" uid="uid://rcyqt17sqkp2" path="res://Interactables/PlayerInteractRay/interaction_ray.tscn" id="2_8cbfn"]
 [ext_resource type="Script" path="res://Movement Component/CustomMovementComponent.gd" id="2_y4nyf"]
+[ext_resource type="Texture2D" uid="uid://cvcsvgbkqljug" path="res://Interactables/PlayerInteractRay/PlayerCrosshair.png" id="4_appc5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qw15f"]
 
@@ -128,6 +129,32 @@ target_position = Vector3(0, 0.5, 0)
 libraries = {
 "": SubResource("AnimationLibrary_h22yx")
 }
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerCrosshair" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -25.0
+offset_right = 24.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_appc5")
+expand_mode = 1
 
 [connection signal="end_colliding" from="head/InteractionRay" to="." method="_on_interaction_ray_end_colliding"]
 [connection signal="start_colliding" from="head/InteractionRay" to="." method="_on_interaction_ray_start_colliding"]

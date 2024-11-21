@@ -13,7 +13,6 @@ collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 2
 script = ExtResource("1_b1cjo")
-message = "triangle"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PrismMesh_1lj8o")
