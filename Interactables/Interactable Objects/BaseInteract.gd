@@ -6,8 +6,8 @@ class_name Interactable
 # Get the key on the keyboard that is assigned to the interact input event
 var interact_key: String = InputMap.action_get_events("Interact")[0].as_text_physical_keycode()
 
-func on_interact(body) -> void:
-	print(body.name + " interacted with " + self.name)
+func on_interact(player: Player) -> void:
+	print(player.name + " interacted with " + self.name)
 	queue_free()
 
 # STRING INTERPOLATION - where %s is a placeholder, and the variables inside the square brackets

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bc4ocbukeiggn"]
+
+[ext_resource type="Texture2D" uid="uid://bx1pyagbvdl0p" path="res://Interactables/Interactable Objects/Door Test/low-poly_door_0.jpg" id="1_kxnqa"]
+[ext_resource type="Texture2D" uid="uid://c7tdhia0wpoja" path="res://Interactables/Interactable Objects/Door Test/low-poly_door_1.png" id="2_871br"]
+
+[resource]
+resource_name = "Frame"
+albedo_texture = ExtResource("1_kxnqa")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_871br")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7mj3iypqyxxy"]
+[gd_scene load_steps=15 format=3 uid="uid://b7mj3iypqyxxy"]
 
 [ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Player/player.tscn" id="1_5e36h"]
 [ext_resource type="PackedScene" uid="uid://chren7x8xtu2h" path="res://Interactables/Interactable Objects/test_interactable.tscn" id="1_5jvjg"]
 [ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
+[ext_resource type="PackedScene" uid="uid://8sbjkh304l42" path="res://Interactables/Interactable Objects/Door Test/DoorScene.tscn" id="4_32edh"]
+[ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/staff test/Magic_Staff_World.tscn" id="5_nt1rk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
@@ -100,16 +102,8 @@ size = Vector3(1, 11, 127)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1391, 2.23314, -3)
 interact_name = "Sphere 4"
 
-[node name="TestInteractable2" parent="." instance=ExtResource("1_5jvjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13911, 2.23314, -3)
-interact_name = "Sphere 3"
-
-[node name="TestInteractable3" parent="." instance=ExtResource("1_5jvjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13911, 2.23314, -3)
-interact_name = "Sphere 2"
-
 [node name="TestInteractable4" parent="." instance=ExtResource("1_5jvjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33911, 2.03314, -0.678904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.64955, 2.03314, -4.01552)
 interact_name = "Sphere 1"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -125,3 +119,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35198, 1.0005, 1.29793)
 [node name="RigidBody3D" parent="." instance=ExtResource("3_2gmjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 0)
 interact_name = "You diggin in me"
+
+[node name="DoorScene2" parent="." instance=ExtResource("4_32edh")]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, -8.88178e-19, 0, 8.88178e-19, 0.004, -4.98375, 0.000499725, -7.11474)
+
+[node name="Magic_Staff_World" parent="." instance=ExtResource("5_nt1rk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.24053, 3.61709, -7.0054)

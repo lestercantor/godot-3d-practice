@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cp4tyyyw3qakv"]
+
+[resource]
+resource_name = "Cube.007__0"
+cull_mode = 2
+roughness = 0.6
