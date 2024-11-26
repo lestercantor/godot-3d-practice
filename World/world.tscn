@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://b7mj3iypqyxxy"]
 
-[ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Player/player.tscn" id="1_5e36h"]
+[ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Entity/Player/player.tscn" id="1_5e36h"]
 [ext_resource type="PackedScene" uid="uid://chren7x8xtu2h" path="res://Interactables/Interactable Objects/test_interactable.tscn" id="1_5jvjg"]
 [ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
 [ext_resource type="PackedScene" uid="uid://8sbjkh304l42" path="res://Interactables/Interactable Objects/Door Test/DoorScene.tscn" id="4_32edh"]
-[ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/staff test/Magic_Staff_World.tscn" id="5_nt1rk"]
+[ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/staff test/World_Magic_Staff.tscn" id="5_nt1rk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
