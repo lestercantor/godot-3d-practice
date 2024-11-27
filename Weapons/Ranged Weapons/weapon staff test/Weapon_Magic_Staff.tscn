@@ -140,6 +140,7 @@ shadow_mesh = SubResource("ArrayMesh_su1u0")
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)
 
 [node name="Object_4" type="MeshInstance3D" parent="Embelishments_0"]
+layers = 512
 mesh = SubResource("ArrayMesh_50iq6")
 skeleton = NodePath("")
 
@@ -147,6 +148,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)
 
 [node name="Object_6" type="MeshInstance3D" parent="Crystal_1"]
+layers = 512
 mesh = SubResource("ArrayMesh_8pfoy")
 skeleton = NodePath("")
 
@@ -154,5 +156,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)
 
 [node name="Object_8" type="MeshInstance3D" parent="Pole_2"]
+layers = 512
 mesh = SubResource("ArrayMesh_kabck")
 skeleton = NodePath("")

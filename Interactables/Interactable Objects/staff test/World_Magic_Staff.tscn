@@ -62,7 +62,18 @@ shape = SubResource("CapsuleShape3D_dqbo3")
 [node name="Staff_Whole" parent="." instance=ExtResource("2_qayuo")]
 transform = Transform3D(0.984808, -0.173648, 0, 0.17101, 0.969846, 0.173648, -0.0301537, -0.17101, 0.984808, 0, 0, 0)
 
+[node name="Object_4" parent="Staff_Whole/Embelishments_0" index="0"]
+layers = 1
+
+[node name="Object_6" parent="Staff_Whole/Crystal_1" index="0"]
+layers = 1
+
+[node name="Object_8" parent="Staff_Whole/Pole_2" index="0"]
+layers = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_yla6q")
 }
+
+[editable path="Staff_Whole"]
