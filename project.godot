@@ -69,3 +69,6 @@ Interact={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable"
 3d_physics/layer_4="World Items"
+3d_physics/layer_5="Enemy"
+3d_physics/layer_6="PlayerHurtbox"
+3d_physics/layer_7="EnemyHurtbox"

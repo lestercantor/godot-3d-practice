@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://dijen44ansdi4"]
+[gd_scene load_steps=13 format=4 uid="uid://dijen44ansdi4"]
 
 [ext_resource type="Texture2D" uid="uid://c5g0vdw8fywi6" path="res://Entity/Enemies/Target Dummy/TrainingDummy001_09_-_Default_BaseColor.png" id="1_lgixk"]
 [ext_resource type="Texture2D" uid="uid://dju40qnvi2o3j" path="res://Entity/Enemies/Target Dummy/TrainingDummy001_MAT_MetallicRoughness.png" id="2_sfeba"]
 [ext_resource type="Texture2D" uid="uid://by6dcq52g0r1u" path="res://Entity/Enemies/Target Dummy/TrainingDummy001_09_-_Default_Normal.png" id="3_ne5rj"]
 [ext_resource type="AnimationLibrary" uid="uid://cwa1kitxjvfh3" path="res://Entity/Enemies/Target Dummy/Animations/Imported.res" id="4_3hp5c"]
+[ext_resource type="Script" path="res://Entity/Hurtbox_Component.gd" id="5_w62ni"]
+[ext_resource type="Script" path="res://Entity/HealthComponent.gd" id="5_ybxei"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngv1j"]
+radius = 0.654725
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64qw1"]
 resource_name = "TrainingDummy001_MAT"
@@ -73,10 +78,28 @@ bind/10/name = &"Torso_004"
 bind/10/bone = -1
 bind/10/pose = Transform3D(0.00998825, 0.000166111, -0.000455136, 0.000454299, 5.38093e-05, 0.00998953, 0.000168387, -0.00999847, 4.61996e-05, -0.00656285, -0.000336854, 0.0112238)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcf7b"]
+size = Vector3(1.29004, 1.88765, 0.529053)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_76yjd"]
 
-[node name="Skeleton3D" type="Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 16
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+script = ExtResource("5_ybxei")
+hurtbox = NodePath("../Hurtbox")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("5_w62ni")
+
+[node name="HurtCollision" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ngv1j")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
 bones/0/name = "Rig"
 bones/0/parent = -1
 bones/0/rest = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
@@ -155,11 +178,16 @@ bones/10/position = Vector3(-1.8161e-10, -2.5814e-12, -0.00445676)
 bones/10/rotation = Quaternion(-0.00370841, 0.707752, -0.000872016, 0.706451)
 bones/10/scale = Vector3(1, 1, 1)
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="Skeleton3D"]
 mesh = SubResource("ArrayMesh_iqrwe")
 skin = SubResource("Skin_us3jr")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.923775, 0)
+shape = SubResource("BoxShape3D_bcf7b")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Skeleton3D")
 libraries = {
 "": SubResource("AnimationLibrary_76yjd"),
 "Imported": ExtResource("4_3hp5c")
