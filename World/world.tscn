@@ -5,8 +5,8 @@
 [ext_resource type="Environment" uid="uid://2r1c6tyl1w8d" path="res://World/World_Environment.tres" id="2_ypiv3"]
 [ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
 [ext_resource type="PackedScene" uid="uid://8sbjkh304l42" path="res://Interactables/Interactable Objects/Door Test/DoorScene.tscn" id="4_32edh"]
-[ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/staff test/World_Magic_Staff.tscn" id="5_nt1rk"]
 [ext_resource type="PackedScene" uid="uid://dijen44ansdi4" path="res://Entity/Enemies/Target Dummy/Training_Dummy_001.tscn" id="6_jgppb"]
+[ext_resource type="PackedScene" uid="uid://27t4m7hl6e7b" path="res://Interactables/Interactable Objects/staff test/World_Fire_Staff.tscn" id="8_28w55"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
@@ -89,11 +89,11 @@ size = Vector3(1, 11, 127)
 
 [node name="TestInteractable" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1391, 2.23314, -3)
-interact_name = "Sphere 4"
+interact_name = "Sphere"
 
 [node name="TestInteractable4" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.64955, 2.03314, -4.01552)
-interact_name = "Sphere 1"
+interact_name = "Sphere"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.965926, -0.224144, 0.12941, 0.224144, -0.474445, 0.851271, -0.12941, 0.851271, 0.508519, 0, 22, 0)
@@ -113,8 +113,8 @@ interact_name = "You diggin in me"
 [node name="DoorScene2" parent="." instance=ExtResource("4_32edh")]
 transform = Transform3D(0.004, 0, 0, 0, 0.004, -8.88178e-19, 0, 8.88178e-19, 0.004, -4.98375, 0.000499725, -7.11474)
 
-[node name="Magic_Staff_World" parent="." instance=ExtResource("5_nt1rk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.24053, 3.61709, -7.0054)
-
 [node name="Skeleton3D" parent="." instance=ExtResource("6_jgppb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.1988, 0.000499725, 2.50535)
+
+[node name="World_Fire_Staff" parent="." instance=ExtResource("8_28w55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 1.18765, -0.249031)

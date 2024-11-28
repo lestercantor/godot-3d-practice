@@ -1,18 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://mmgcefnnec8h"]
+[gd_scene load_steps=5 format=3 uid="uid://mmgcefnnec8h"]
 
 [ext_resource type="Script" path="res://Interactables/Interactable Objects/FloatingItem.gd" id="1_mxkpt"]
-[ext_resource type="PackedScene" uid="uid://0quec0fqrsj3" path="res://Weapons/Ranged Weapons/weapon staff test/Weapon_Magic_Staff.tscn" id="2_qayuo"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqbo3"]
-radius = 0.263151
-height = 1.65604
 
 [sub_resource type="Animation" id="Animation_skp1k"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Staff_Whole:position")
+tracks/0/path = NodePath("World_Object:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +23,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Staff_Whole:position")
+tracks/0/path = NodePath("World_Object:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +39,7 @@ _data = {
 "floating": SubResource("Animation_7fsi4")
 }
 
-[node name="World_Magic_Staff" type="RigidBody3D" node_paths=PackedStringArray("rigid_body")]
+[node name="World_Weapon_Interactables" type="RigidBody3D" node_paths=PackedStringArray("rigid_body")]
 collision_layer = 4
 collision_mask = 9
 axis_lock_angular_x = true
@@ -54,26 +49,13 @@ mass = 4.0
 can_sleep = false
 script = ExtResource("1_mxkpt")
 rigid_body = NodePath(".")
-interact_name = "Fire Staff"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_dqbo3")
 
-[node name="Staff_Whole" parent="." instance=ExtResource("2_qayuo")]
+[node name="World_Object" type="Node3D" parent="."]
 transform = Transform3D(0.984808, -0.173648, 0, 0.17101, 0.969846, 0.173648, -0.0301537, -0.17101, 0.984808, 0, 0, 0)
-
-[node name="Object_4" parent="Staff_Whole/Embelishments_0" index="0"]
-layers = 1
-
-[node name="Object_6" parent="Staff_Whole/Crystal_1" index="0"]
-layers = 1
-
-[node name="Object_8" parent="Staff_Whole/Pole_2" index="0"]
-layers = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_yla6q")
 }
-
-[editable path="Staff_Whole"]

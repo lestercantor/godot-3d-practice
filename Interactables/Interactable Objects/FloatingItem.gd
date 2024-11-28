@@ -1,15 +1,19 @@
 extends Interactable
+class_name WorldModelInteractable
 
 @export var spin_speed: float = 130 # Spin speed
-
-@onready var staff_whole: Node3D = $Staff_Whole
+@export var weapon_to_hold: WeaponResource
 
 var is_on_ground: bool = false
 
-@export var rigid_body: RigidBody3D
+@export var rigid_body: RigidBody3D # Assign it to itself to access the variables 
+@onready var world_object: Node3D = $World_Object
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	interact_name = weapon_to_hold.name
+	
 func _process(delta: float) -> void:
 	# Checks if the object is not on the ground yet. Mainly a check for uneven surfaces
 	# Once the object is on the ground, it doesn't need to carry on checking so we set is_on_ground to true
@@ -21,13 +25,14 @@ func _process(delta: float) -> void:
 		
 	spin(delta)
 
-# Placeholder interact function. Adds impulse to the object - gets the horizontal direction
-# From the player so it will always seem like the object is being pushed away from the player.
-func on_interact(player: Player) -> void:
-	var direction = player.position.direction_to(self.position).normalized()
-	var horizontal_direction = Vector3(direction.x, 0, direction.z)
-	rigid_body.apply_central_impulse(horizontal_direction * 20)
+func on_interact(player: Player) -> void: 
+	if not weapon_to_hold: return
+	
+	player.weapon_manager.weapon1 = weapon_to_hold
+	var weapon_model: = weapon_to_hold.model.instantiate()
+	player.weapon_manager.add_child(weapon_model)
+	self.queue_free()
 
 # Function to make the mesh spin
 func spin(delta: float) -> void:
-	staff_whole.rotate_y(deg_to_rad(spin_speed * delta))
+	world_object.rotate_y(deg_to_rad(spin_speed * delta))

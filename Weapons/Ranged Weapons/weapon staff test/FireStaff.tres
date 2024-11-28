@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://d2vsb8ey5o715"]
+
+[ext_resource type="PackedScene" uid="uid://0quec0fqrsj3" path="res://Weapons/Ranged Weapons/weapon staff test/Weapon_Magic_Staff.tscn" id="1_34kgo"]
+[ext_resource type="Script" path="res://Weapons/Weapon_Resource.gd" id="1_i0eeu"]
+
+[resource]
+script = ExtResource("1_i0eeu")
+min_damage = 1.0
+max_damage = 2.0
+damage_range = 100.0
+name = "Fire Staff"
+weapon_type = 2
+model = ExtResource("1_34kgo")

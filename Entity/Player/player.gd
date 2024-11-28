@@ -8,7 +8,9 @@ class_name Player
 @onready var collision_shape: CapsuleShape3D = $PlayerCapsule.get_shape()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var cmc: CustomMovementComponent = $CustomMovementComponent
-@onready var weapon_camera: Camera3D = $head/WeaponManager/Staff_Whole/SubViewportContainer/SubViewport/WeaponCamera
+@onready var weapon_camera: Camera3D = $head/WeaponManager/SubViewportContainer/SubViewport/WeaponCamera
+@onready var weapon_manager: WeaponManager = $head/WeaponManager
+
 
 # Changing FOV variables
 var base_fov: float = 90

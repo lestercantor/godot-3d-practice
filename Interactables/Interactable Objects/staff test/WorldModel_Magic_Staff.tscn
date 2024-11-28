@@ -1,19 +1,19 @@
-[gd_scene load_steps=16 format=4 uid="uid://0quec0fqrsj3"]
+[gd_scene load_steps=16 format=4 uid="uid://ccf5sykvtassm"]
 
-[ext_resource type="Texture2D" uid="uid://4rb1kn6ry63q" path="res://Interactables/Interactable Objects/staff test/textures/Embelishments_baseColor.png" id="1_ctdaa"]
-[ext_resource type="Texture2D" uid="uid://608rh04yerjo" path="res://Interactables/Interactable Objects/staff test/textures/Embelishments_normal.png" id="2_1wo8r"]
-[ext_resource type="Texture2D" uid="uid://joyqnsxrj3wc" path="res://Interactables/Interactable Objects/staff test/textures/Crystal_baseColor.png" id="3_wvhcd"]
-[ext_resource type="Texture2D" uid="uid://5mocbievr02o" path="res://Interactables/Interactable Objects/staff test/textures/Crystal_normal.png" id="4_8b87h"]
-[ext_resource type="Texture2D" uid="uid://cxkhtb4vm46ny" path="res://Interactables/Interactable Objects/staff test/textures/Pole_baseColor.png" id="5_fxsvi"]
-[ext_resource type="Texture2D" uid="uid://bxtp0rsvv2uie" path="res://Interactables/Interactable Objects/staff test/textures/Pole_normal.png" id="6_2557y"]
+[ext_resource type="Texture2D" uid="uid://4rb1kn6ry63q" path="res://Interactables/Interactable Objects/staff test/textures/Embelishments_baseColor.png" id="1_7cybw"]
+[ext_resource type="Texture2D" uid="uid://608rh04yerjo" path="res://Interactables/Interactable Objects/staff test/textures/Embelishments_normal.png" id="2_tjov1"]
+[ext_resource type="Texture2D" uid="uid://joyqnsxrj3wc" path="res://Interactables/Interactable Objects/staff test/textures/Crystal_baseColor.png" id="3_cmxw4"]
+[ext_resource type="Texture2D" uid="uid://5mocbievr02o" path="res://Interactables/Interactable Objects/staff test/textures/Crystal_normal.png" id="4_y6nff"]
+[ext_resource type="Texture2D" uid="uid://cxkhtb4vm46ny" path="res://Interactables/Interactable Objects/staff test/textures/Pole_baseColor.png" id="5_o1dbt"]
+[ext_resource type="Texture2D" uid="uid://bxtp0rsvv2uie" path="res://Interactables/Interactable Objects/staff test/textures/Pole_normal.png" id="6_jnl5u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vbpf"]
 resource_name = "Embelishments"
-albedo_texture = ExtResource("1_ctdaa")
+albedo_texture = ExtResource("1_7cybw")
 metallic = 0.768029
 roughness = 0.162882
 normal_enabled = true
-normal_texture = ExtResource("2_1wo8r")
+normal_texture = ExtResource("2_tjov1")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3c80h"]
 _surfaces = [{
@@ -53,13 +53,13 @@ shadow_mesh = SubResource("ArrayMesh_3c80h")
 resource_name = "Crystal"
 transparency = 4
 albedo_color = Color(1, 1, 1, 0.95)
-albedo_texture = ExtResource("3_wvhcd")
+albedo_texture = ExtResource("3_cmxw4")
 roughness = 0.0
 emission_enabled = true
 emission = Color(0.730088, 0.251977, 0, 1)
 emission_energy_multiplier = 4.54612
 normal_enabled = true
-normal_texture = ExtResource("4_8b87h")
+normal_texture = ExtResource("4_y6nff")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_45ieu"]
 _surfaces = [{
@@ -97,10 +97,10 @@ shadow_mesh = SubResource("ArrayMesh_45ieu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u8wk"]
 resource_name = "Pole"
-albedo_texture = ExtResource("5_fxsvi")
+albedo_texture = ExtResource("5_o1dbt")
 roughness = 0.681027
 normal_enabled = true
-normal_texture = ExtResource("6_2557y")
+normal_texture = ExtResource("6_jnl5u")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_su1u0"]
 _surfaces = [{
@@ -140,7 +140,6 @@ shadow_mesh = SubResource("ArrayMesh_su1u0")
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)
 
 [node name="Object_4" type="MeshInstance3D" parent="Embelishments_0"]
-layers = 512
 mesh = SubResource("ArrayMesh_50iq6")
 skeleton = NodePath("")
 
@@ -148,7 +147,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)
 
 [node name="Object_6" type="MeshInstance3D" parent="Crystal_1"]
-layers = 512
 mesh = SubResource("ArrayMesh_8pfoy")
 skeleton = NodePath("")
 
@@ -156,6 +154,5 @@ skeleton = NodePath("")
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)
 
 [node name="Object_8" type="MeshInstance3D" parent="Pole_2"]
-layers = 512
 mesh = SubResource("ArrayMesh_kabck")
 skeleton = NodePath("")

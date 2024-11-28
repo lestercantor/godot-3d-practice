@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_cbrqq"]
 [ext_resource type="PackedScene" uid="uid://rcyqt17sqkp2" path="res://Interactables/PlayerInteractRay/interaction_ray.tscn" id="2_8cbfn"]
-[ext_resource type="PackedScene" uid="uid://0quec0fqrsj3" path="res://Weapons/Ranged Weapons/weapon staff test/Weapon_Magic_Staff.tscn" id="2_burgm"]
 [ext_resource type="Script" path="res://Movement Component/CustomMovementComponent.gd" id="2_y4nyf"]
+[ext_resource type="Script" path="res://Entity/Player/WeaponManager.gd" id="4_a613w"]
 [ext_resource type="Texture2D" uid="uid://cvcsvgbkqljug" path="res://Interactables/PlayerInteractRay/PlayerCrosshair.png" id="4_appc5"]
 [ext_resource type="Environment" uid="uid://2r1c6tyl1w8d" path="res://World/World_Environment.tres" id="4_wlf5a"]
 
@@ -115,6 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="MainCam" type="Camera3D" parent="head"]
 cull_mask = 1048063
 environment = ExtResource("4_wlf5a")
+current = true
 fov = 90.0
 
 [node name="InteractionRay" parent="head" instance=ExtResource("2_8cbfn")]
@@ -122,23 +123,22 @@ interact_range = -2.5
 
 [node name="WeaponManager" type="Node3D" parent="head"]
 transform = Transform3D(0.986176, -0.153593, -0.0621802, 0.16521, 0.940293, 0.29758, 0.0127615, -0.303739, 0.95267, 0.515633, -0.406104, -0.622459)
+script = ExtResource("4_a613w")
 
-[node name="Staff_Whole" parent="head/WeaponManager" instance=ExtResource("2_burgm")]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="head/WeaponManager/Staff_Whole"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="head/WeaponManager"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="head/WeaponManager/Staff_Whole/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="head/WeaponManager/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="WeaponCamera" type="Camera3D" parent="head/WeaponManager/Staff_Whole/SubViewportContainer/SubViewport"]
+[node name="WeaponCamera" type="Camera3D" parent="head/WeaponManager/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 cull_mask = 512
 environment = ExtResource("4_wlf5a")
