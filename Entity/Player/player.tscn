@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbqqs4brsd23k"]
+[gd_scene load_steps=13 format=3 uid="uid://bbqqs4brsd23k"]
 
 [ext_resource type="Script" path="res://Entity/Player/player.gd" id="1_cbrqq"]
 [ext_resource type="PackedScene" uid="uid://rcyqt17sqkp2" path="res://Interactables/PlayerInteractRay/interaction_ray.tscn" id="2_8cbfn"]
 [ext_resource type="PackedScene" uid="uid://0quec0fqrsj3" path="res://Weapons/Ranged Weapons/weapon staff test/Weapon_Magic_Staff.tscn" id="2_burgm"]
 [ext_resource type="Script" path="res://Movement Component/CustomMovementComponent.gd" id="2_y4nyf"]
 [ext_resource type="Texture2D" uid="uid://cvcsvgbkqljug" path="res://Interactables/PlayerInteractRay/PlayerCrosshair.png" id="4_appc5"]
+[ext_resource type="Environment" uid="uid://2r1c6tyl1w8d" path="res://World/World_Environment.tres" id="4_wlf5a"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qw15f"]
 
@@ -113,6 +114,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="MainCam" type="Camera3D" parent="head"]
 cull_mask = 1048063
+environment = ExtResource("4_wlf5a")
 fov = 90.0
 
 [node name="InteractionRay" parent="head" instance=ExtResource("2_8cbfn")]
@@ -139,6 +141,7 @@ render_target_update_mode = 4
 [node name="WeaponCamera" type="Camera3D" parent="head/WeaponManager/Staff_Whole/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 cull_mask = 512
+environment = ExtResource("4_wlf5a")
 fov = 90.0
 
 [node name="CustomMovementComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "uncrouch_space")]

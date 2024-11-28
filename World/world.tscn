@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7mj3iypqyxxy"]
+[gd_scene load_steps=14 format=3 uid="uid://b7mj3iypqyxxy"]
 
 [ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Entity/Player/player.tscn" id="1_5e36h"]
 [ext_resource type="PackedScene" uid="uid://chren7x8xtu2h" path="res://Interactables/Interactable Objects/test_interactable.tscn" id="1_5jvjg"]
+[ext_resource type="Environment" uid="uid://2r1c6tyl1w8d" path="res://World/World_Environment.tres" id="2_ypiv3"]
 [ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
 [ext_resource type="PackedScene" uid="uid://8sbjkh304l42" path="res://Interactables/Interactable Objects/Door Test/DoorScene.tscn" id="4_32edh"]
 [ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/staff test/World_Magic_Staff.tscn" id="5_nt1rk"]
@@ -22,19 +23,6 @@ albedo_color = Color(0.615686, 0, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txj36"]
 albedo_color = Color(0, 1, 1, 1)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3v7kw"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_mhieb"]
-sky_material = SubResource("ProceduralSkyMaterial_3v7kw")
-
-[sub_resource type="Environment" id="Environment_u5exw"]
-background_mode = 2
-sky = SubResource("Sky_mhieb")
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="World" type="Node3D"]
 
@@ -109,10 +97,11 @@ interact_name = "Sphere 1"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.965926, -0.224144, 0.12941, 0.224144, -0.474445, 0.851271, -0.12941, 0.851271, 0.508519, 0, 22, 0)
+layers = 513
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_u5exw")
+environment = ExtResource("2_ypiv3")
 
 [node name="Player" parent="." instance=ExtResource("1_5e36h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35198, 1.0005, 1.29793)
