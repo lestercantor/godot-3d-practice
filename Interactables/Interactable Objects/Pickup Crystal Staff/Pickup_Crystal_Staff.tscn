@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgudeceeg6sk6"]
+
+[ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/Pickup_Weapon_Interactables.tscn" id="1_4ifuv"]
+[ext_resource type="Resource" uid="uid://dvm7cx6rwiuux" path="res://Weapons/Ranged Weapons/Crystal Staff/CyrstalStaff.tres" id="2_i24mn"]
+[ext_resource type="PackedScene" uid="uid://dauhgg2ab4j6e" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/WorldModel_Crystal_Staff.tscn" id="3_w18vu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22oyg"]
+radius = 0.294881
+height = 1.66002
+
+[node name="Pickup_Crystal_Staff" instance=ExtResource("1_4ifuv")]
+weapon_to_hold = ExtResource("2_i24mn")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116431, 0)
+shape = SubResource("CapsuleShape3D_22oyg")
+
+[node name="WorldModel_Crystal_Staff" parent="World_Object" index="0" instance=ExtResource("3_w18vu")]

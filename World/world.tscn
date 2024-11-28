@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7mj3iypqyxxy"]
+[gd_scene load_steps=15 format=3 uid="uid://b7mj3iypqyxxy"]
 
 [ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Entity/Player/player.tscn" id="1_5e36h"]
 [ext_resource type="PackedScene" uid="uid://chren7x8xtu2h" path="res://Interactables/Interactable Objects/test_interactable.tscn" id="1_5jvjg"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
 [ext_resource type="PackedScene" uid="uid://8sbjkh304l42" path="res://Interactables/Interactable Objects/Door Test/DoorScene.tscn" id="4_32edh"]
 [ext_resource type="PackedScene" uid="uid://dijen44ansdi4" path="res://Entity/Enemies/Target Dummy/Training_Dummy_001.tscn" id="6_jgppb"]
-[ext_resource type="PackedScene" uid="uid://27t4m7hl6e7b" path="res://Interactables/Interactable Objects/staff test/World_Fire_Staff.tscn" id="8_28w55"]
+[ext_resource type="PackedScene" uid="uid://27t4m7hl6e7b" path="res://Interactables/Interactable Objects/Pickup Fire Staff/Pickup_Fire_Staff.tscn" id="8_28w55"]
+[ext_resource type="PackedScene" uid="uid://cgudeceeg6sk6" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/Pickup_Crystal_Staff.tscn" id="8_lpaan"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
@@ -89,11 +90,11 @@ size = Vector3(1, 11, 127)
 
 [node name="TestInteractable" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1391, 2.23314, -3)
-interact_name = "Sphere"
+interact_name = "Sphere2"
 
 [node name="TestInteractable4" parent="." instance=ExtResource("1_5jvjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.64955, 2.03314, -4.01552)
-interact_name = "Sphere"
+interact_name = "Sphere1"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.965926, -0.224144, 0.12941, 0.224144, -0.474445, 0.851271, -0.12941, 0.851271, 0.508519, 0, 22, 0)
@@ -118,3 +119,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.19
 
 [node name="World_Fire_Staff" parent="." instance=ExtResource("8_28w55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 1.18765, -0.249031)
+
+[node name="World_Crystal_Staff" parent="." instance=ExtResource("8_lpaan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3861, 1.21303, 0.55173)
