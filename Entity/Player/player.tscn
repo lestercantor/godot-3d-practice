@@ -184,6 +184,3 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_appc5")
 expand_mode = 1
-
-[connection signal="end_colliding" from="head/InteractionRay" to="." method="_on_interaction_ray_end_colliding"]
-[connection signal="start_colliding" from="head/InteractionRay" to="." method="_on_interaction_ray_start_colliding"]

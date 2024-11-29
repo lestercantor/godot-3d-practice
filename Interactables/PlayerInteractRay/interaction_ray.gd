@@ -1,11 +1,9 @@
 extends RayCast3D
-
-signal start_colliding(object: Interactable)
-signal end_colliding()
+class_name InteractionRay
 
 @export var interact_range: float = 1
 
-var already_colliding: bool = false
+var actor_to_interact_with: Interactable = null
 
 @onready var prompt: Label = $Prompt
 
@@ -14,24 +12,26 @@ func _ready() -> void:
 	target_position.z = interact_range
 	prompt.text = ""
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	# Check if the raycast is colliding with something and we're not already colliding 
-	if is_colliding() and !already_colliding:
-		# Check if the object the raycast is colliding with has the "Interactable" class
-		var collider = get_collider()
-		if collider is Interactable:
-			#print(collider.interact_name + " is interactable " + collider.get_prompt())
-			# Set already_colliding to true so that it doesn't get called every frame
-			already_colliding = true
-			# Emit the signal that the raycast has collided with something and pass the interactable object
-			start_colliding.emit(collider)
-			prompt.set_visible(true)
-			prompt.text = collider.get_prompt()
+	if is_colliding():
+		if get_collider() != actor_to_interact_with:
+			# Check if the object the raycast is colliding with has the "Interactable" class
+			var collider = get_collider()
+			if collider is Interactable:
+				# Set the actor_to_interact_with to the collider so we can check so we can check if the raycast
+				# Is colliding with the same actor or not 
+				actor_to_interact_with = collider
+				# Set the prompt to be visible and set the text
+				prompt.set_visible(true)
+				prompt.text = collider.get_prompt()
 	
 	# Check when the player has looked away from the interactable object 
-	# Emit the signal that the raycast has stopped and set already_colliding to false so it's not called every frame
-	elif !is_colliding() and already_colliding:
-		end_colliding.emit()
-		already_colliding = false
+	# Emit the signal that the raycast has stopped 
+	
+	# Check if the raycast is NOT colliding and the prompt is still visibile so it's not called every frame
+	# Because if we are not colliding with anything then the prompt should not be visible.
+	elif !is_colliding() and (prompt.visible == true):
 		prompt.set_visible(false)
 		prompt.text = ""
+		actor_to_interact_with = null

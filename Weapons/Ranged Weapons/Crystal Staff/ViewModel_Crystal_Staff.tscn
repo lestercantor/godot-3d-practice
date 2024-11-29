@@ -12,6 +12,7 @@ metallic_texture_channel = 2
 roughness_texture = ExtResource("2_me22b")
 roughness_texture_channel = 1
 emission_enabled = true
+emission_energy_multiplier = 2.0
 emission_texture = ExtResource("1_tfsus")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_laejm"]
@@ -56,6 +57,7 @@ albedo_color = Color(0.623894, 1, 0.98003, 0.673818)
 roughness = 0.726139
 emission_enabled = true
 emission = Color(0.382837, 1, 1, 1)
+emission_energy_multiplier = 2.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k6iuo"]
 _surfaces = [{

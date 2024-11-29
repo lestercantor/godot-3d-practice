@@ -1,4 +1,7 @@
 extends Interactable
 
-func on_interact(_player: Player) -> void:
-	position = lerp(position, position + (Vector3.LEFT * 5), Engine.get_main_loop().root.get_process_delta_time() * 8)
+@export var body: RigidBody3D
+
+func on_interact(player: Player) -> void:
+	var direction: Vector3 = player.position.direction_to(position).normalized()
+	body.apply_impulse(direction * 6)
