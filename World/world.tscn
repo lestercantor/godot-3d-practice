@@ -117,6 +117,9 @@ transform = Transform3D(0.004, 0, 0, 0, 0.004, -8.88178e-19, 0, 8.88178e-19, 0.0
 [node name="Skeleton3D" parent="." instance=ExtResource("6_jgppb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.1988, 0.000499725, 2.50535)
 
+[node name="World_Fire_Staff2" parent="." instance=ExtResource("8_28w55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4339, 2.3753, -2.64703)
+
 [node name="World_Fire_Staff" parent="." instance=ExtResource("8_28w55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 1.18765, -0.249031)
 

@@ -28,10 +28,9 @@ func _process(delta: float) -> void:
 func on_interact(player: Player) -> void: 
 	if not weapon_to_hold: return
 	
-	player.weapon_manager.weapon1 = weapon_to_hold
-	var weapon_model: = weapon_to_hold.model.instantiate()
-	player.weapon_manager.add_child(weapon_model)
-	self.queue_free()
+	# Weapon manager in player handles the equipping to slot now
+	if player.weapon_manager.equip_to_empty_slot(weapon_to_hold):
+		queue_free()
 
 # Function to make the mesh spin
 func spin(delta: float) -> void:

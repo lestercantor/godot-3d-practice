@@ -41,14 +41,18 @@ func _physics_process(delta: float) -> void:
 			bFov_lerp = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * sensitivity))
-		head.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
-		head.rotation.x = clampf(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+	if event is InputEventMouseButton:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif event.is_action_pressed("exit"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			rotate_y(deg_to_rad(-event.relative.x * sensitivity))
+			head.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
+			head.rotation.x = clampf(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
 	if event.is_action_pressed("Interact") and interaction_ray.actor_to_interact_with:
 		interaction_ray.actor_to_interact_with.call_deferred("on_interact",self)
 
