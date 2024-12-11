@@ -86,6 +86,12 @@ func show_weapon(weapon_ref: String) -> void: ####
 func helper_swap() -> void:
 	hide_weapon("active_weapon")
 	
+	##################################################################
+	## Done this way so shoot function only shoots the active weapon #
+	## instead of making a function to make the second weapon shoot ##
+	##################################################################
+	
+	# Make temporary variables to swap the weapons 
 	var weapon_temp: WeaponResource = active_weapon
 	var weapon_model_temp: Node3D = active_weapon_model
 	

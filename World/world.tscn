@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7mj3iypqyxxy"]
+[gd_scene load_steps=16 format=3 uid="uid://b7mj3iypqyxxy"]
 
 [ext_resource type="PackedScene" uid="uid://bbqqs4brsd23k" path="res://Entity/Player/player.tscn" id="1_5e36h"]
 [ext_resource type="PackedScene" uid="uid://chren7x8xtu2h" path="res://Interactables/Interactable Objects/test_interactable.tscn" id="1_5jvjg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dijen44ansdi4" path="res://Entity/Enemies/Target Dummy/Training_Dummy_001.tscn" id="6_jgppb"]
 [ext_resource type="PackedScene" uid="uid://27t4m7hl6e7b" path="res://Interactables/Interactable Objects/Pickup Fire Staff/Pickup_Fire_Staff.tscn" id="8_28w55"]
 [ext_resource type="PackedScene" uid="uid://cgudeceeg6sk6" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/Pickup_Crystal_Staff.tscn" id="8_lpaan"]
+[ext_resource type="PackedScene" uid="uid://dwborfpifpvu1" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/Pickup_Arcane_Staff.tscn" id="9_0mvu6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
@@ -125,3 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 1.18765, -0.249031)
 
 [node name="World_Crystal_Staff" parent="." instance=ExtResource("8_lpaan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3861, 1.21303, 0.55173)
+
+[node name="Pickup_Arcane_Staff" parent="." instance=ExtResource("9_0mvu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7043, 1.43314, -0.254132)
