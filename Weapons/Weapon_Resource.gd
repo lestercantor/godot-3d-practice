@@ -14,4 +14,4 @@ enum WeaponType {
 @export var name: String
 @export var weapon_type: WeaponType
 
-@export var model: PackedScene
+#@export var model_for_player: PackedScene

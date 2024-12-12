@@ -1,19 +1,20 @@
-[gd_scene load_steps=9 format=4 uid="uid://ys60u80dnx7o"]
+[gd_scene load_steps=10 format=4 uid="uid://ys60u80dnx7o"]
 
-[ext_resource type="Texture2D" uid="uid://cartgvetqqpgc" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/textures/Material.014_baseColor.png" id="1_tfsus"]
-[ext_resource type="Texture2D" uid="uid://f3lxpwwhhpy" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/textures/Material.014_metallicRoughness.png" id="2_me22b"]
+[ext_resource type="Texture2D" uid="uid://cartgvetqqpgc" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/textures/Material.014_baseColor.png" id="1_indwq"]
+[ext_resource type="Script" path="res://Weapons/Weapon.gd" id="1_r1r63"]
+[ext_resource type="Texture2D" uid="uid://f3lxpwwhhpy" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/textures/Material.014_metallicRoughness.png" id="2_npadn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uymts"]
 resource_name = "Material.014"
 cull_mode = 2
-albedo_texture = ExtResource("1_tfsus")
-metallic_texture = ExtResource("2_me22b")
+albedo_texture = ExtResource("1_indwq")
+metallic_texture = ExtResource("2_npadn")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("2_me22b")
+roughness_texture = ExtResource("2_npadn")
 roughness_texture_channel = 1
 emission_enabled = true
 emission_energy_multiplier = 2.0
-emission_texture = ExtResource("1_tfsus")
+emission_texture = ExtResource("1_indwq")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_laejm"]
 _surfaces = [{
@@ -93,8 +94,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k6iuo")
 
-[node name="ViewModel_Crystal_Staff" type="Node3D"]
+[node name="Weapon_Crystal_Staff" type="Node3D"]
 transform = Transform3D(-0.282645, -0.958424, -0.0391951, -0.00808751, -0.0384787, 0.999227, -0.959191, 0.282743, 0.00312454, 0, 0, 0)
+script = ExtResource("1_r1r63")
 
 [node name="CrystalStaff_obj_cleaner_materialmerger_gles" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31353e-16, -0.591563)

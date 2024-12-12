@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://0quec0fqrsj3"]
+[gd_scene load_steps=17 format=4 uid="uid://0quec0fqrsj3"]
 
+[ext_resource type="Script" path="res://Weapons/Weapon.gd" id="1_7pwmd"]
 [ext_resource type="Texture2D" uid="uid://4rb1kn6ry63q" path="res://Interactables/Interactable Objects/Pickup Fire Staff/textures/Embelishments_baseColor.png" id="1_ctdaa"]
 [ext_resource type="Texture2D" uid="uid://608rh04yerjo" path="res://Interactables/Interactable Objects/Pickup Fire Staff/textures/Embelishments_normal.png" id="2_1wo8r"]
 [ext_resource type="Texture2D" uid="uid://joyqnsxrj3wc" path="res://Interactables/Interactable Objects/Pickup Fire Staff/textures/Crystal_baseColor.png" id="3_wvhcd"]
@@ -134,7 +135,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_su1u0")
 
-[node name="ViewModel_Fire_Staff" type="Node3D"]
+[node name="Weapon_Fire_Staff" type="Node3D"]
+script = ExtResource("1_7pwmd")
 
 [node name="Embelishments_0" type="Node3D" parent="."]
 transform = Transform3D(0.139, 0, 0, 0, 0.07, 0, 0, 0, 0.139, 0, 0, 0)

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dtymve8sb31my" path="res://Interactables/Interactable Objects/child test/child_interactable.tscn" id="3_2gmjv"]
 [ext_resource type="PackedScene" uid="uid://8sbjkh304l42" path="res://Interactables/Interactable Objects/Door Test/DoorScene.tscn" id="4_32edh"]
 [ext_resource type="PackedScene" uid="uid://dijen44ansdi4" path="res://Entity/Enemies/Target Dummy/Training_Dummy_001.tscn" id="6_jgppb"]
-[ext_resource type="PackedScene" uid="uid://27t4m7hl6e7b" path="res://Interactables/Interactable Objects/Pickup Fire Staff/Pickup_Fire_Staff.tscn" id="8_28w55"]
-[ext_resource type="PackedScene" uid="uid://cgudeceeg6sk6" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/Pickup_Crystal_Staff.tscn" id="8_lpaan"]
-[ext_resource type="PackedScene" uid="uid://dwborfpifpvu1" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/Pickup_Arcane_Staff.tscn" id="9_0mvu6"]
+[ext_resource type="PackedScene" uid="uid://dwborfpifpvu1" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/Pickup_Arcane_Staff.tscn" id="7_lty7m"]
+[ext_resource type="PackedScene" uid="uid://cgudeceeg6sk6" path="res://Interactables/Interactable Objects/Pickup Crystal Staff/Pickup_Crystal_Staff.tscn" id="8_u2toy"]
+[ext_resource type="PackedScene" uid="uid://27t4m7hl6e7b" path="res://Interactables/Interactable Objects/Pickup Fire Staff/Pickup_Fire_Staff.tscn" id="9_njf7m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmvmi"]
 albedo_color = Color(0.155252, 0.383387, 0, 1)
@@ -118,14 +118,11 @@ transform = Transform3D(0.004, 0, 0, 0, 0.004, -8.88178e-19, 0, 8.88178e-19, 0.0
 [node name="Skeleton3D" parent="." instance=ExtResource("6_jgppb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.1988, 0.000499725, 2.50535)
 
-[node name="World_Fire_Staff2" parent="." instance=ExtResource("8_28w55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4339, 2.3753, -2.64703)
+[node name="Pickup_Arcane_Staff" parent="." instance=ExtResource("7_lty7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.203, 2.38143, 0.84866)
 
-[node name="World_Fire_Staff" parent="." instance=ExtResource("8_28w55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 1.18765, -0.249031)
+[node name="Pickup_Crystal_Staff" parent="." instance=ExtResource("8_u2toy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.083, 2.09154, 1.28762)
 
-[node name="World_Crystal_Staff" parent="." instance=ExtResource("8_lpaan")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3861, 1.21303, 0.55173)
-
-[node name="Pickup_Arcane_Staff" parent="." instance=ExtResource("9_0mvu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7043, 1.43314, -0.254132)
+[node name="Pickup_Fire_Staff" parent="." instance=ExtResource("9_njf7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.148, 1.8365, 2.72323)

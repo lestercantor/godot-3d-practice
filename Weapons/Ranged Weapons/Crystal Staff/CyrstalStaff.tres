@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://dvm7cx6rwiuux"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://dvm7cx6rwiuux"]
 
-[ext_resource type="PackedScene" uid="uid://ys60u80dnx7o" path="res://Weapons/Ranged Weapons/Crystal Staff/ViewModel_Crystal_Staff.tscn" id="1_ywafv"]
 [ext_resource type="Script" path="res://Weapons/Weapon_Resource.gd" id="2_hj2ng"]
 
 [resource]
@@ -10,4 +9,3 @@ max_damage = 200.0
 damage_range = 1000.0
 name = "Crystal Staff"
 weapon_type = 2
-model = ExtResource("1_ywafv")

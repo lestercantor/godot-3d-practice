@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://27t4m7hl6e7b"]
+[gd_scene load_steps=6 format=3 uid="uid://27t4m7hl6e7b"]
 
 [ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/Pickup_Weapon_Interactables.tscn" id="1_eic5l"]
+[ext_resource type="PackedScene" uid="uid://0quec0fqrsj3" path="res://Weapons/Ranged Weapons/Fire Staff/Weapon_Fire_Staff.tscn" id="2_0oyu3"]
 [ext_resource type="PackedScene" uid="uid://ccf5sykvtassm" path="res://Interactables/Interactable Objects/Pickup Fire Staff/WorldModel_Fire_Staff.tscn" id="2_0tdjf"]
-[ext_resource type="Resource" uid="uid://d2vsb8ey5o715" path="res://Weapons/Ranged Weapons/Fire Staff/FireStaff.tres" id="2_vj1hu"]
+[ext_resource type="Resource" uid="uid://d2vsb8ey5o715" path="res://Weapons/Ranged Weapons/Fire Staff/FireStaff.tres" id="3_lserc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wu62p"]
 radius = 0.257244
 height = 1.65081
 
 [node name="Pickup_Fire_Staff" instance=ExtResource("1_eic5l")]
-weapon_to_hold = ExtResource("2_vj1hu")
+weapon_to_hold = ExtResource("2_0oyu3")
+weapon_data = ExtResource("3_lserc")
+interact_name = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("CapsuleShape3D_wu62p")

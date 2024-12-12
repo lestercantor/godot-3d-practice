@@ -10,4 +10,4 @@ max_damage = 2.0
 damage_range = 100.0
 name = "Fire Staff"
 weapon_type = 2
-model = ExtResource("1_34kgo")
+model_for_player = ExtResource("1_34kgo")

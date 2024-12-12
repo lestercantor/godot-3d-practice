@@ -4,8 +4,8 @@ class_name WeaponManager
 var active_weapon: WeaponResource = null
 var second_weapon: WeaponResource = null
 
-var active_weapon_model: Node3D = null
-var second_weapon_model: Node3D = null
+var active_weapon_model: Weapon = null
+var second_weapon_model: Weapon = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("swap_weapon"):
@@ -22,30 +22,31 @@ func _unhandled_input(event: InputEvent) -> void:
 		if second_weapon_model:
 			print(second_weapon.name)
 			print(second_weapon.max_damage)
-		
 
 # Used in the interaction of the world model weapon to assign the first weapon
 # that they pick up as their primary
-func equip_to_empty_slot(interacting_weapon: WeaponResource) -> bool:
-	if is_active_weapon_empty():
-		assign_weapon("active_weapon", interacting_weapon)
-		return true
-	elif is_second_weapon_empty():
-		assign_weapon("second_weapon", interacting_weapon)
-		hide_weapon("second_weapon")
-		return true
-	return false
+func equip_to_empty_slot(interacting_weapon: PackedScene, interacting_weapon_data: WeaponResource) -> void:	
+	match [is_active_weapon_empty(),is_second_weapon_empty()]:
+		[true, true]:
+			assign_weapon("active_weapon", interacting_weapon, interacting_weapon_data)
+		[false, true]:
+			assign_weapon("second_weapon", interacting_weapon, interacting_weapon_data)
+			hide_weapon("second_weapon")
+		[false, false]:
+			# Destroy the active model attached to the player
+			active_weapon_model.queue_free()
+			assign_weapon("active_weapon", interacting_weapon, interacting_weapon_data)
 
 # Function to assign and show the weapon 
-func assign_weapon(weapon_ref: String, weapon: WeaponResource) -> void:
+func assign_weapon(weapon_ref: String, weapon: PackedScene, weapon_data: WeaponResource) -> void:
 	match weapon_ref:
 		"active_weapon":
-			active_weapon = weapon
-			active_weapon_model = weapon.model.instantiate()
+			active_weapon = weapon_data
+			active_weapon_model = weapon.instantiate()
 			add_child(active_weapon_model)
 		"second_weapon":
-			second_weapon = weapon
-			second_weapon_model = weapon.model.instantiate()
+			second_weapon = weapon_data
+			second_weapon_model = weapon.instantiate()
 			add_child(second_weapon_model)
 		_:
 			# for debug purposes

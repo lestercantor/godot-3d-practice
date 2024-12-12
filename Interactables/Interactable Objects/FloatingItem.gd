@@ -2,7 +2,8 @@ extends Interactable
 class_name WorldModelInteractable
 
 @export var spin_speed: float = 130 # Spin speed
-@export var weapon_to_hold: WeaponResource
+@export var weapon_to_hold: PackedScene
+@export var weapon_data: WeaponResource
 
 var is_on_ground: bool = false
 
@@ -12,7 +13,7 @@ var is_on_ground: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	interact_name = weapon_to_hold.name
+	interact_name = weapon_data.name
 	
 func _process(delta: float) -> void:
 	# Checks if the object is not on the ground yet. Mainly a check for uneven surfaces
@@ -29,8 +30,8 @@ func on_interact(player: Player) -> void:
 	if not weapon_to_hold: return
 	
 	# Weapon manager in player handles the equipping to slot now
-	if player.weapon_manager.equip_to_empty_slot(weapon_to_hold):
-		queue_free()
+	player.weapon_manager.equip_to_empty_slot(weapon_to_hold, weapon_data)
+	queue_free()
 
 # Function to make the mesh spin
 func spin(delta: float) -> void:

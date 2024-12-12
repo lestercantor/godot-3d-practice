@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=4 uid="uid://budqv36pks2gt"]
+[gd_scene load_steps=7 format=4 uid="uid://budqv36pks2gt"]
 
-[ext_resource type="Texture2D" uid="uid://dh8b44x1w3x7k" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/textures/syaff_lambert_wapen_baseColor.png" id="1_sevwm"]
-[ext_resource type="Texture2D" uid="uid://dm80kg0ujk3hc" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/textures/syaff_lambert_wapen_emissive.png" id="2_xua0y"]
+[ext_resource type="Script" path="res://Weapons/Weapon.gd" id="1_n2yrk"]
+[ext_resource type="Texture2D" uid="uid://dh8b44x1w3x7k" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/textures/syaff_lambert_wapen_baseColor.png" id="2_xjd83"]
+[ext_resource type="Texture2D" uid="uid://dm80kg0ujk3hc" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/textures/syaff_lambert_wapen_emissive.png" id="3_xtorr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo8qk"]
 resource_name = "syaff_lambert_wapen"
 cull_mode = 2
-albedo_texture = ExtResource("1_sevwm")
+albedo_texture = ExtResource("2_xjd83")
 roughness = 0.0
 emission_enabled = true
-emission_texture = ExtResource("2_xua0y")
+emission_texture = ExtResource("3_xtorr")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1xcqp"]
 _surfaces = [{
@@ -45,8 +46,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1xcqp")
 
-[node name="ViewModel_Arcane_Staff" type="Node3D"]
+[node name="Weapon_Arcane_Staff" type="Node3D"]
 transform = Transform3D(-0.245375, 0, 0.969428, 0, 1, 0, -0.969428, 0, -0.245375, 0, 0, 0)
+script = ExtResource("1_n2yrk")
 
 [node name="Arcane_Staff_Of_Resonance" type="Node3D" parent="."]
 

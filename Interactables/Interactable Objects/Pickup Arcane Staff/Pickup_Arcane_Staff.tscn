@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwborfpifpvu1"]
+[gd_scene load_steps=6 format=3 uid="uid://dwborfpifpvu1"]
 
 [ext_resource type="PackedScene" uid="uid://mmgcefnnec8h" path="res://Interactables/Interactable Objects/Pickup_Weapon_Interactables.tscn" id="1_5d1os"]
+[ext_resource type="PackedScene" uid="uid://budqv36pks2gt" path="res://Weapons/Ranged Weapons/Arcane Staff/Weapon_Arcane_Staff.tscn" id="2_2n0l0"]
 [ext_resource type="Resource" uid="uid://d0uewliwxcjbv" path="res://Weapons/Ranged Weapons/Arcane Staff/ArcaneStaff.tres" id="2_fvk34"]
 [ext_resource type="PackedScene" uid="uid://db7p0n0wcpp64" path="res://Interactables/Interactable Objects/Pickup Arcane Staff/WorldModel_Arcane_Staff.tscn" id="3_lpres"]
 
@@ -9,7 +10,9 @@ radius = 0.355959
 height = 1.41091
 
 [node name="Pickup_Arcane_Staff" instance=ExtResource("1_5d1os")]
-weapon_to_hold = ExtResource("2_fvk34")
+weapon_to_hold = ExtResource("2_2n0l0")
+weapon_data = ExtResource("2_fvk34")
+interact_name = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0425395, 0)

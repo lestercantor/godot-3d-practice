@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://d0uewliwxcjbv"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://d0uewliwxcjbv"]
 
-[ext_resource type="PackedScene" uid="uid://budqv36pks2gt" path="res://Weapons/Ranged Weapons/Arcane Staff/ViewModel_Arcane_Staff.tscn" id="1_bwf0q"]
 [ext_resource type="Script" path="res://Weapons/Weapon_Resource.gd" id="2_ii6mu"]
 
 [resource]
@@ -10,4 +9,3 @@ max_damage = 1000.0
 damage_range = 500.0
 name = "Arcane Staff"
 weapon_type = 2
-model = ExtResource("1_bwf0q")
