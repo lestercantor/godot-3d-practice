@@ -25,7 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Used in the interaction of the world model weapon to assign the first weapon
 # that they pick up as their primary
-func equip_to_empty_slot(interacting_weapon: PackedScene, interacting_weapon_data: WeaponResource) -> void:	
+func equip_to_empty_slot(interacting_weapon: PackedScene, interacting_weapon_data: WeaponResource) -> void:
 	match [is_active_weapon_empty(),is_second_weapon_empty()]:
 		[true, true]:
 			assign_weapon("active_weapon", interacting_weapon, interacting_weapon_data)
@@ -34,6 +34,7 @@ func equip_to_empty_slot(interacting_weapon: PackedScene, interacting_weapon_dat
 			hide_weapon("second_weapon")
 		[false, false]:
 			# Destroy the active model attached to the player
+			spawn_pickup()
 			active_weapon_model.queue_free()
 			assign_weapon("active_weapon", interacting_weapon, interacting_weapon_data)
 
@@ -63,6 +64,13 @@ func swap_weapon() -> void:
 	if active_weapon and !is_second_weapon_empty():
 		helper_swap()
 
+func spawn_pickup() -> void:
+	var pickup_scene = load(active_weapon.pickup_weapon)
+	if pickup_scene:
+		var pickup_instance = pickup_scene.instantiate()
+		pickup_instance.position = self.global_position
+		get_tree().root.add_child(pickup_instance)
+		
 ################################################# Helper functions
 func is_active_weapon_empty() -> bool: #########
 	return active_weapon == null

@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://d2vsb8ey5o715"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://d2vsb8ey5o715"]
 
-[ext_resource type="PackedScene" uid="uid://0quec0fqrsj3" path="res://Weapons/Ranged Weapons/Fire Staff/Weapon_Fire_Staff.tscn" id="1_34kgo"]
 [ext_resource type="Script" path="res://Weapons/Weapon_Resource.gd" id="1_i0eeu"]
 
 [resource]
@@ -10,4 +9,4 @@ max_damage = 2.0
 damage_range = 100.0
 name = "Fire Staff"
 weapon_type = 2
-model_for_player = ExtResource("1_34kgo")
+pickup_weapon = "res://Interactables/Interactable Objects/Pickup Fire Staff/Pickup_Fire_Staff.tscn"

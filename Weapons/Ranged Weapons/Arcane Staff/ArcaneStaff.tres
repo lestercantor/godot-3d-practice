@@ -9,3 +9,4 @@ max_damage = 1000.0
 damage_range = 500.0
 name = "Arcane Staff"
 weapon_type = 2
+pickup_weapon = "res://Interactables/Interactable Objects/Pickup Arcane Staff/Pickup_Arcane_Staff.tscn"

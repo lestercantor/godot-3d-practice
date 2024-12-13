@@ -9,3 +9,4 @@ max_damage = 200.0
 damage_range = 1000.0
 name = "Crystal Staff"
 weapon_type = 2
+pickup_weapon = "res://Interactables/Interactable Objects/Pickup Crystal Staff/Pickup_Crystal_Staff.tscn"
